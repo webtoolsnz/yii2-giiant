@@ -85,7 +85,7 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
     {
         $formName = $this->formName();
         $params = !$params ? Yii::$app->request->get($formName, array()) : $params;
-        $query = <?= $className ?>::find();
+        $query = self::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

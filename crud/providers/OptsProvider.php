@@ -8,7 +8,7 @@ use yii\db\ColumnSchema;
  * @package schmunk42\giiant\crud\providers
  * @author Christopher Stebe <c.stebe@herzogkommunikation.de>
  */
-class OptsProvider extends \schmunk42\giiant\base\Provider
+class OptsProvider extends \badams\giiant\base\Provider
 {
     public function activeField(ColumnSchema $attribute)
     {

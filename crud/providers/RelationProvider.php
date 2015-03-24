@@ -6,13 +6,13 @@
  * Time: 10:21
  */
 
-namespace schmunk42\giiant\crud\providers;
+namespace badams\giiant\crud\providers;
 
 use yii\db\ActiveRecord;
 use yii\db\ColumnSchema;
 use yii\helpers\Inflector;
 
-class RelationProvider extends \schmunk42\giiant\base\Provider
+class RelationProvider extends \badams\giiant\base\Provider
 {
     /**
      * Formatter for relation form inputs

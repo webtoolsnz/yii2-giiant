@@ -15,7 +15,7 @@ use yii\base\BootstrapInterface;
 
 /**
  * Class Bootstrap
- * @package schmunk42\giiant
+ * @package badams\giiant
  * @author Tobias Munk <tobias@diemeisterei.de>
  */
 class Bootstrap implements BootstrapInterface

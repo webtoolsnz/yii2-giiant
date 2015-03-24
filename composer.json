@@ -1,11 +1,15 @@
 {
-    "name": "schmunk42/yii2-giiant",
+    "name": "badams/yii2-giiant",
     "description": "Gii CRUD generator for Yii 2 Framework",
     "keywords": ["yii2", "gii", "crud"],
-    "homepage": "https://github.com/schmunk42/yii2-giiant",
+    "homepage": "https://github.com/badams/yii2-giiant",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "authors": [
+        {
+            "name": "Byron Adams",
+            "email": "byron.adams54@webtools.co.nz"
+        },
         {
             "name": "Tobias Munk",
             "email": "schmunk@usrbin.de",
@@ -18,10 +22,10 @@
     },
     "autoload": {
         "psr-4": {
-            "schmunk42\\giiant\\": ""
+            "badams\\giiant\\": ""
         }
     },
     "extra": {
-        "bootstrap": "schmunk42\\giiant\\Bootstrap"
+        "bootstrap": "badams\\giiant\\Bootstrap"
     }
 }

@@ -6,11 +6,11 @@
  * Time: 10:21
  */
 
-namespace schmunk42\giiant\crud\providers;
+namespace badams\giiant\crud\providers;
 
 use yii\db\ColumnSchema;
 
-class EditorProvider extends \schmunk42\giiant\base\Provider
+class EditorProvider extends \badams\giiant\base\Provider
 {
     public function activeField(ColumnSchema $attribute)
     {

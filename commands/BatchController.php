@@ -1,8 +1,8 @@
 <?php
 
-namespace schmunk42\giiant\commands;
+namespace badams\giiant\commands;
 
-use schmunk42\giiant\crud\Generator;
+use badams\giiant\crud\Generator;
 use yii\console\Controller;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;

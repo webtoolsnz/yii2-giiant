@@ -6,9 +6,9 @@
  * Time: 01:01
  */
 
-namespace schmunk42\giiant\crud\providers;
+namespace badams\giiant\crud\providers;
 
-class CallbackProvider extends \schmunk42\giiant\base\Provider
+class CallbackProvider extends \badams\giiant\base\Provider
 {
     public $activeFields = [];
     public $prependActiveFields = [];

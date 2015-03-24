@@ -5,7 +5,7 @@
  * @license http://www.phundament.com/license/
  */
 
-namespace schmunk42\giiant\model;
+namespace badams\giiant\model;
 
 use yii\gii\CodeFile;
 use yii\helpers\Inflector;

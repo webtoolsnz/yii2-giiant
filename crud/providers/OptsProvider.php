@@ -1,11 +1,11 @@
 <?php
-namespace schmunk42\giiant\crud\providers;
+namespace badams\giiant\crud\providers;
 
 use yii\db\ColumnSchema;
 
 /**
  * Class OptsProvider
- * @package schmunk42\giiant\crud\providers
+ * @package badams\giiant\crud\providers
  * @author Christopher Stebe <c.stebe@herzogkommunikation.de>
  */
 class OptsProvider extends \badams\giiant\base\Provider

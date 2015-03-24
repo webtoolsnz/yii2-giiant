@@ -1,7 +1,6 @@
 <?php
 
 namespace badams\giiant\model;
-namespace app\gii\model;
 
 use yii\gii\CodeFile;
 use yii\helpers\Inflector;

@@ -19,6 +19,7 @@ echo "<?php\n";
 namespace <?= $generator->ns ?>\base;
 
 use Yii;
+use yii\data\ActiveDataProvider;
 
 /**
  * This is the base-model class for table "<?= $tableName ?>".
@@ -72,4 +73,32 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
         <?= $relation[0] . "\n" ?>
     }
 <?php endforeach; ?>
+
+    /**
+     * Creates data provider instance with search query applied
+     *
+     * @param array $params
+     *
+     * @return ActiveDataProvider
+     */
+    public function search($params = null)
+    {
+        $formName = $this->formName();
+        $params = !$params ? Yii::$app->request->get($formName, array()) : $params;
+        $query = <?= $className ?>::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        if (!$this->load([$formName => $params])) {
+            // uncomment the following line if you do not want to any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+<?= implode("\n ", $searchConditions) ?>
+
+        return $dataProvider;
+    }
 }

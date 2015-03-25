@@ -1,9 +1,8 @@
 yii2-giiant
 ===========
+*Project was forked from https://github.com/schmunk42/yii2-giiant* 
 
 Extended models and CRUDs for Gii, the code generator of Yii2 Framework
-
-**PROJECT IS IN BETA STAGE!**
 
 
 What is it?
@@ -17,8 +16,18 @@ Installation
 ------------
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+Update your `composer.json` with the following:
 
-    composer.phar require schmunk42/yii2-giiant:"*"
+    "require-dev": {
+        "webtoolsnz/yii2-giiant" : "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@bitbucket.org:webtoolsnz/yii2-giiant.git"
+        }
+    ]
+
 
 The generators are registered automatically in the application bootstrap process, if the Gii module is enabled
 
@@ -75,15 +84,15 @@ rules. Take a look at some existing [giiant providers](https://github.com/schmun
 
 Configure providers, add this to your provider list in the form:
 
-    \schmunk42\giiant\crud\providers\EditorProvider,
-    \schmunk42\giiant\crud\providers\SelectProvider,
-    \schmunk42\giiant\crud\providers\OptsProvider,
+    \webtoolsnz\giiant\crud\providers\EditorProvider,
+    \webtoolsnz\giiant\crud\providers\SelectProvider,
+    \webtoolsnz\giiant\crud\providers\OptsProvider,
     
 
 And configure the settings of the provider, add setting via dependecy injection this to your application config, eg. in `console/config/bootstrap.php`:
 
     \Yii::$container->set(
-        'schmunk42\giiant\crud\providers\EditorProvider',
+        'webtoolsnz\giiant\crud\providers\EditorProvider',
         [
             'columnNames' => ['description']
         ]
@@ -272,17 +281,3 @@ to your *** composer.json ***  file and run
     composer update
     
 if you are having trouble with "Not found" errors using the preferred method. 
-
-Screenshots
------------
-
-![giiant-0 2-screen-1](https://cloud.githubusercontent.com/assets/649031/5692432/c93fd82c-98f5-11e4-8b52-8f35df52986f.png)
-![giiant-0 2-screen-2](https://cloud.githubusercontent.com/assets/649031/5692429/c9189492-98f5-11e4-969f-02a302ca6974.png)
-
-Links
------
-
-- [Phundament.com](http://phundament.com)
-- [GitHub](https://github.com/schmunk42/yii2-giiant)
-- [Packagist](https://packagist.org/packages/schmunk42/yii2-giiant)
-- [Yii Extensions](http://www.yiiframework.com/extension/yii2-giiant/)

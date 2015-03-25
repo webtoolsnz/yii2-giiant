@@ -1,5 +1,5 @@
 {
-    "name": "badams/yii2-giiant",
+    "name": "webtoolsnz/yii2-giiant",
     "description": "Gii CRUD generator for Yii 2 Framework",
     "keywords": ["yii2", "gii", "crud"],
     "homepage": "https://github.com/badams/yii2-giiant",
@@ -8,7 +8,7 @@
     "authors": [
         {
             "name": "Byron Adams",
-            "email": "byron.adams54@webtools.co.nz"
+            "email": "byron@webtools.co.nz"
         },
         {
             "name": "Tobias Munk",
@@ -22,10 +22,10 @@
     },
     "autoload": {
         "psr-4": {
-            "badams\\giiant\\": ""
+            "webtoolsnz\\giiant\\": ""
         }
     },
     "extra": {
-        "bootstrap": "badams\\giiant\\Bootstrap"
+        "bootstrap": "webtoolsnz\\giiant\\Bootstrap"
     }
 }

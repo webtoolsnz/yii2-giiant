@@ -6,13 +6,13 @@
  * Time: 10:21
  */
 
-namespace badams\giiant\crud\providers;
+namespace webtoolsnz\giiant\crud\providers;
 
 use yii\db\ActiveRecord;
 use yii\db\ColumnSchema;
 use yii\helpers\Inflector;
 
-class RelationProvider extends \badams\giiant\base\Provider
+class RelationProvider extends \webtoolsnz\giiant\base\Provider
 {
     /**
      * Formatter for relation form inputs

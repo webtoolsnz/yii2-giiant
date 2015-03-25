@@ -1,14 +1,14 @@
 <?php
-namespace badams\giiant\crud\providers;
+namespace webtoolsnz\giiant\crud\providers;
 
 use yii\db\ColumnSchema;
 
 /**
  * Class OptsProvider
- * @package badams\giiant\crud\providers
+ * @package webtoolsnz\giiant\crud\providers
  * @author Christopher Stebe <c.stebe@herzogkommunikation.de>
  */
-class OptsProvider extends \badams\giiant\base\Provider
+class OptsProvider extends \webtoolsnz\giiant\base\Provider
 {
     public function activeField(ColumnSchema $attribute)
     {

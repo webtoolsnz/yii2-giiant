@@ -1,8 +1,8 @@
 <?php
 
-namespace badams\giiant\crud\providers;
+namespace webtoolsnz\giiant\crud\providers;
 
-class DateTimeProvider extends \badams\giiant\base\Provider
+class DateTimeProvider extends \webtoolsnz\giiant\base\Provider
 {
     public function activeField($attribute)
     {

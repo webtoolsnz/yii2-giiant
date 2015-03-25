@@ -1,8 +1,8 @@
 <?php
 
-namespace badams\giiant\commands;
+namespace webtoolsnz\giiant\commands;
 
-use badams\giiant\crud\Generator;
+use webtoolsnz\giiant\crud\Generator;
 use yii\console\Controller;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;

@@ -6,9 +6,9 @@
  * Time: 01:01
  */
 
-namespace badams\giiant\crud\providers;
+namespace webtoolsnz\giiant\crud\providers;
 
-class CallbackProvider extends \badams\giiant\base\Provider
+class CallbackProvider extends \webtoolsnz\giiant\base\Provider
 {
     public $activeFields = [];
     public $prependActiveFields = [];

@@ -5,7 +5,7 @@ use yii\helpers\StringHelper;
 
 /**
  * @var yii\web\View $this
- * @var badams\giiant\crud\Generator $generator
+ * @var webtoolsnz\giiant\crud\Generator $generator
  */
 
 $urlParams = $generator->generateUrlParams();

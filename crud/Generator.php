@@ -5,13 +5,13 @@
  * @license   http://www.yiiframework.com/license/
  */
 
-namespace badams\giiant\crud;
+namespace webtoolsnz\giiant\crud;
 
-use badams\giiant\crud\providers\CallbackProvider;
-use badams\giiant\crud\providers\DateTimeProvider;
-use badams\giiant\crud\providers\EditorProvider;
-use badams\giiant\crud\providers\OptsProvider;
-use badams\giiant\crud\providers\RelationProvider;
+use webtoolsnz\giiant\crud\providers\CallbackProvider;
+use webtoolsnz\giiant\crud\providers\DateTimeProvider;
+use webtoolsnz\giiant\crud\providers\EditorProvider;
+use webtoolsnz\giiant\crud\providers\OptsProvider;
+use webtoolsnz\giiant\crud\providers\RelationProvider;
 use Yii;
 use yii\base\Exception;
 use yii\db\ActiveQuery;

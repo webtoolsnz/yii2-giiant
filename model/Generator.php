@@ -1,6 +1,6 @@
 <?php
 
-namespace badams\giiant\model;
+namespace webtoolsnz\giiant\model;
 
 use yii\gii\CodeFile;
 use yii\helpers\Inflector;

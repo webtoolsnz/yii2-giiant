@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace badams\giiant;
+namespace webtoolsnz\giiant;
 
 use yii\base\Application;
 use yii\base\BootstrapInterface;
@@ -15,7 +15,7 @@ use yii\base\BootstrapInterface;
 
 /**
  * Class Bootstrap
- * @package badams\giiant
+ * @package webtoolsnz\giiant
  * @author Tobias Munk <tobias@diemeisterei.de>
  */
 class Bootstrap implements BootstrapInterface
@@ -31,13 +31,13 @@ class Bootstrap implements BootstrapInterface
         if ($app->hasModule('gii')) {
 
             if (!isset($app->getModule('gii')->generators['giiant-model'])) {
-                $app->getModule('gii')->generators['giiant-model'] = 'badams\giiant\model\Generator';
+                $app->getModule('gii')->generators['giiant-model'] = 'webtoolsnz\giiant\model\Generator';
             }
             if (!isset($app->getModule('gii')->generators['giiant-crud'])) {
-                $app->getModule('gii')->generators['giiant-crud'] = 'badams\giiant\crud\Generator';
+                $app->getModule('gii')->generators['giiant-crud'] = 'webtoolsnz\giiant\crud\Generator';
             }
             if ($app instanceof \yii\console\Application) {
-                $app->controllerMap['giiant-batch'] = 'badams\giiant\commands\BatchController';
+                $app->controllerMap['giiant-batch'] = 'webtoolsnz\giiant\commands\BatchController';
             }
         }
     }

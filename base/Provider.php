@@ -6,7 +6,7 @@
  * Time: 01:02
  */
 
-namespace badams\giiant\base;
+namespace webtoolsnz\giiant\base;
 
 
 use yii\base\Object;
@@ -14,7 +14,7 @@ use yii\base\Object;
 class Provider extends Object
 {
     /**
-     * @var \badams\giiant\crud\Generator
+     * @var \webtoolsnz\giiant\crud\Generator
      */
     public $generator;
     public $columnNames = [''];

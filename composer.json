@@ -2,7 +2,7 @@
     "name": "webtoolsnz/yii2-giiant",
     "description": "Gii CRUD generator for Yii 2 Framework",
     "keywords": ["yii2", "gii", "crud"],
-    "homepage": "https://github.com/badams/yii2-giiant",
+    "homepage": "http://bitbucket.org/webtoolsnz/yii2-giiant",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "authors": [

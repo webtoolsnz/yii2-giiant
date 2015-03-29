@@ -45,6 +45,11 @@ use \dmstr\bootstrap\Tabs;
 
         <p>
             <?php foreach ($safeAttributes as $attribute) {
+
+                if (!isset($generator->getTableSchema()->columns[$attribute])) {
+                    continue;
+                }
+
                 $column   = $generator->getTableSchema()->columns[$attribute];
 
                 $prepend = $generator->prependActiveField($column, $model);
@@ -99,6 +104,10 @@ EOS;
                 ]
             );
         ?>
+
+        <p class="pull-right">
+            <?= "<?= " ?>Html::a(<?= $generator->generateString('Cancel') ?>, \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
+        </p>
 
 
         <?= "<?php " ?>ActiveForm::end(); ?>

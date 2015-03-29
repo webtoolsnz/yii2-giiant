@@ -53,6 +53,14 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
     }
 
     /**
+     *
+     */
+    public function __toString()
+    {
+        return (string) $this-><?=$toString?>;
+    }
+
+    /**
      * @inheritdoc
      */
     public function rules()

@@ -29,6 +29,12 @@ class Generator extends \yii\gii\generators\model\Generator
      * @var array key-value pairs for mapping a table-name to class-name, eg. 'prefix_FOObar' => 'FooBar'
      */
     public $tableNameMap = [];
+
+    /**
+     * @var null string for the description attribute, if not provided defaults to primary key.
+     */
+    public  $descriptiveAttribute = null;
+
     protected $classNames2;
 
     /**
@@ -56,7 +62,7 @@ class Generator extends \yii\gii\generators\model\Generator
             parent::rules(),
             [
                 [['generateModelClass'], 'boolean'],
-                [['tablePrefix'], 'safe'],
+                [['tablePrefix', 'descriptiveAttribute'], 'safe'],
             ]
         );
     }
@@ -70,6 +76,7 @@ class Generator extends \yii\gii\generators\model\Generator
             parent::attributeLabels(),
             [
                 'generateModelClass' => 'Generate Model Class',
+                'descriptiveAttribute' => 'Descriptive Attribute'
             ]
         );
     }
@@ -84,6 +91,7 @@ class Generator extends \yii\gii\generators\model\Generator
             [
                 'generateModelClass' => 'This indicates whether the generator should generate the model class, this should usually be done only once. The model-base class is always generated.',
                 'tablePrefix'        => 'Custom table prefix, eg <code>app_</code>.<br/><b>Note!</b> overrides <code>yii\db\Connection</code> prefix!',
+                'descriptiveAttribute' => 'An attribute of the model that can be used to represent it in text form. eg. <b>User</b> model might use the <code>username</code> attribute to describe a user.'
 
             ]
         );
@@ -120,6 +128,7 @@ class Generator extends \yii\gii\generators\model\Generator
                 'ns'               => $this->ns,
                 'searchConditions' => $this->generateSearchConditions($className, $tableSchema),
                 'label'            => $this->generateLabel($className),
+                'toString'         => $this->generateToString($tableSchema),
             ];
 
             $files[] = new CodeFile(
@@ -275,6 +284,11 @@ class Generator extends \yii\gii\generators\model\Generator
         $singular = Inflector::singularize($className);
 
         return '{n, plural, =1{'.$singular.'} other{'.$plural.'}}';
+    }
+
+    public function generateToString($tableSchema)
+    {
+        return $this->descriptiveAttribute ? $this->descriptiveAttribute : reset($tableSchema->primaryKey);
     }
 
 }

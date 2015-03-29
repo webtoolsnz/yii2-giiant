@@ -19,17 +19,10 @@ use yii\helpers\Html;
 */
 
 $this->title = <?= $generator->generateString('Create') ?>;
-$this->params['breadcrumbs'][] = ['label' => '<?= Inflector::pluralize(
-    Inflector::camel2words(StringHelper::basename($generator->modelClass))
-) ?>', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' =>$model->label(2), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-create">
-
-    <p class="pull-left">
-        <?= "<?= " ?>Html::a(<?= $generator->generateString('Cancel') ?>, \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
-    </p>
-    <div class="clearfix"></div>
 
     <?= "<?= " ?>$this->render('_form', [
     'model' => $model,

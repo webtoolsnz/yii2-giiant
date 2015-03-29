@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = ['label' => $model->label(2), 'url' => ['index'
 $this->params['breadcrumbs'][] = ['label' => $model->__toString(), 'url' => ['view', <?= $urlParams ?>]];
 $this->params['breadcrumbs'][] = <?= $generator->generateString('Edit') ?>;
 ?>
-<div class="<?= '<?=$model->label()?>' ?>-update">
+<div class=<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-update">
 
     <h1><?= '<?=$this->title ?>' ?></h1>
 

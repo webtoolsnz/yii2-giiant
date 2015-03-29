@@ -28,7 +28,7 @@ $this->title = $searchModel->label(2);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="<?='<?= $searchModel->label() ?>'?>-index">
+<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-index">
 
     <h1><?= '<?= $searchModel->label(2) ?>' ?></h1>
     <?=

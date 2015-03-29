@@ -95,7 +95,7 @@ EOS;
                             ? <?= $generator->generateString('Create') ?> : <?= $generator->generateString('Save') ?>),
                 [
                     'id'    => 'save-' . $model->formName(),
-                    'class' => 'btn btn-success'
+                    'class' => 'btn btn-primary'
                 ]
             );
         ?>

@@ -108,17 +108,18 @@ class Generator extends \yii\gii\generators\model\Generator
         foreach ($this->getTableNames() as $tableName) {
 
             $className = $this->generateClassName($tableName);
-
             $tableSchema = $db->getTableSchema($tableName);
+
             $params      = [
-                'tableName'   => $tableName,
-                'className'   => $className,
-                'tableSchema' => $tableSchema,
-                'labels'      => $this->generateLabels($tableSchema),
-                'rules'       => $this->generateRules($tableSchema),
-                'relations'   => isset($relations[$className]) ? $relations[$className] : [],
-                'ns'          => $this->ns,
+                'tableName'        => $tableName,
+                'className'        => $className,
+                'tableSchema'      => $tableSchema,
+                'labels'           => $this->generateLabels($tableSchema),
+                'rules'            => $this->generateRules($tableSchema),
+                'relations'        => isset($relations[$className]) ? $relations[$className] : [],
+                'ns'               => $this->ns,
                 'searchConditions' => $this->generateSearchConditions($className, $tableSchema),
+                'label'            => $this->generateLabel($className),
             ];
 
             $files[] = new CodeFile(
@@ -266,6 +267,14 @@ class Generator extends \yii\gii\generators\model\Generator
         }
 
         return $conditions;
+    }
+
+    public function generateLabel($className)
+    {
+        $plural = Inflector::pluralize($className);
+        $singular = Inflector::singularize($className);
+
+        return '{n, plural, =1{'.$singular.'} other{'.$plural.'}}';
     }
 
 }

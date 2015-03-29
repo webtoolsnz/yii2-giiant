@@ -45,6 +45,14 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
     }
 
     /**
+     *
+     */
+    public function label($n = 1)
+    {
+        return Yii::t('app', '<?=$label?>', ['n' => $n]);
+    }
+
+    /**
      * @inheritdoc
      */
     public function rules()
@@ -102,3 +110,4 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
         return $dataProvider;
     }
 }
+

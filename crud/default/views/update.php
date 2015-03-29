@@ -16,23 +16,21 @@ echo "<?php\n";
 use yii\helpers\Html;
 
 /**
- * @var yii\web\View $this
- * @var <?= ltrim($generator->modelClass, '\\') ?> $model
- */
+* @var yii\web\View $this
+* @var <?= ltrim($generator->modelClass, '\\') ?> $model
+*/
 
-$this->title = '<?= Inflector::camel2words(StringHelper::basename($generator->modelClass)) ?> ' . $model-><?= $generator->getNameAttribute() ?> . ', ' . <?= $generator->generateString('Edit') ?>;
-$this->params['breadcrumbs'][] = ['label' => '<?= Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?>', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => (string)$model-><?= $generator->getNameAttribute() ?>, 'url' => ['view', <?= $urlParams ?>]];
+$this->title = sprintf('Update %s: %s', $model->label(), $model->__toString());
+$this->params['breadcrumbs'][] = ['label' => $model->label(2), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->__toString(), 'url' => ['view', <?= $urlParams ?>]];
 $this->params['breadcrumbs'][] = <?= $generator->generateString('Edit') ?>;
 ?>
-<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass),'-', true) ?>-update">
+<div class="<?= '<?=$model->label()?>' ?>-update">
 
-    <p>
-        <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-eye-open"></span> ' . <?= $generator->generateString('View') ?>, ['view', <?= $urlParams ?>], ['class' => 'btn btn-info']) ?>
-    </p>
+    <h1><?= '<?=$this->title ?>' ?></h1>
 
-	<?= "<?php " ?>echo $this->render('_form', [
-		'model' => $model,
-	]); ?>
+    <?= "<?php " ?>echo $this->render('_form', [
+    'model' => $model,
+    ]); ?>
 
 </div>

@@ -24,12 +24,13 @@ use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\w
 * @var <?= ltrim($generator->searchModelClass, '\\') ?> $searchModel
 */
 
-    $this->title = '<?= Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?>';
+$this->title = $searchModel->label(2);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-index">
+<div class="<?='<?= $searchModel->label() ?>'?>-index">
 
+    <h1><?= '<?= $searchModel->label(2) ?>' ?></h1>
     <?=
     "<?php " . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>
     echo $this->render('_search', ['model' =>$searchModel]);
@@ -68,41 +69,43 @@ $this->params['breadcrumbs'][] = $this->title;
                 ?>
             <?php endforeach; ?>
 
-            <?= "<?= \n" ?>
-            \yii\bootstrap\ButtonDropdown::widget(
+            <?php if (!empty($items)): ?>
+                <?= "<?= \n" ?>
+                \yii\bootstrap\ButtonDropdown::widget(
                 [
-                    'id'       => 'giiant-relations',
-                    'encodeLabel' => false,
-                    'label'    => '<span class="glyphicon glyphicon-paperclip"></span> ' . <?= $generator->generateString('Relations') ?>,
-                    'dropdown' => [
-                        'options'      => [
-                            'class' => 'dropdown-menu-right'
-                        ],
-                        'encodeLabels' => false,
-                        'items'        => <?= \yii\helpers\VarDumper::export($items) ?>
-                    ],
+                'id'       => 'giiant-relations',
+                'encodeLabel' => false,
+                'label'    => '<span class="glyphicon glyphicon-paperclip"></span> ' . <?= $generator->generateString('Relations') ?>,
+                'dropdown' => [
+                'options'      => [
+                'class' => 'dropdown-menu-right'
+                ],
+                'encodeLabels' => false,
+                'items'        => <?= \yii\helpers\VarDumper::export($items) ?>
+                ],
                 ]
-            );
-            <?= "?>" ?>
+                );
+                <?= "?>" ?>
+            <?php endif; ?>
         </div>
     </div>
 
     <?php if ($generator->indexWidgetType === 'grid'): ?>
 
         <div class="table-responsive">
-        <?= "<?= " ?>GridView::widget([
-        'layout' => '{summary}{pager}{items}{pager}',
-        'dataProvider' => $dataProvider,
-        'pager'        => [
+            <?= "<?= " ?>GridView::widget([
+            'layout' => '{summary}{pager}{items}{pager}',
+            'dataProvider' => $dataProvider,
+            'pager'        => [
             'class'          => yii\widgets\LinkPager::className(),
             'firstPageLabel' => <?= $generator->generateString('First') ?>,
             'lastPageLabel'  => <?= $generator->generateString('Last') ?>
-        ],
-        'filterModel' => $searchModel,
-        'columns' => [
+            ],
+            'filterModel' => $searchModel,
+            'columns' => [
 
-        <?php
-        $actionButtonColumn = <<<PHP
+            <?php
+            $actionButtonColumn = <<<PHP
 [
     'class' => '{$generator->actionButtonClass}',
     'urlCreator' => function(\$action, \$model, \$key, \$index) {
@@ -115,25 +118,26 @@ $this->params['breadcrumbs'][] = $this->title;
 ],
 PHP;
 
-        // action buttons first
-        echo $actionButtonColumn;
 
-        $count = 0;
-        echo "\n"; // code-formatting
 
-        foreach ($generator->getTableSchema()->columns as $column) {
-            $format = trim($generator->columnFormat($column,$model));
-            if ($format == false) continue;
-            if (++$count < 8) {
-                echo "\t\t\t{$format},\n";
-            } else {
-                echo "\t\t\t/*{$format}*/\n";
+            $count = 0;
+            echo "\n"; // code-formatting
+
+            foreach ($generator->getTableSchema()->columns as $column) {
+                $format = trim($generator->columnFormat($column,$model));
+                if ($format == false) continue;
+                if (++$count < 8) {
+                    echo "\t\t\t{$format},\n";
+                } else {
+                    echo "\t\t\t/*{$format}*/\n";
+                }
             }
-        }
 
-        ?>
-        ],
-    ]); ?>
+            // action buttons last
+            echo $actionButtonColumn;
+            ?>
+            ],
+            ]); ?>
         </div>
 
     <?php else: ?>

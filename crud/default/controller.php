@@ -44,6 +44,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
      */
     public function actionIndex()
     {
+        Url::remember();
         $searchModel  = new <?= isset($searchModelAlias) ? $searchModelAlias : $searchModelClass ?>;
         $dataProvider = $searchModel->search($_GET);
 
@@ -61,6 +62,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
      */
     public function actionView(<?= $actionParams ?>)
     {
+        Url::remember();
         return $this->render('view', [
             'model' => $this->findModel(<?= $actionParams ?>),
         ]);

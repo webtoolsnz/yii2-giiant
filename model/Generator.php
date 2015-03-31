@@ -280,8 +280,9 @@ class Generator extends \yii\gii\generators\model\Generator
 
     public function generateLabel($className)
     {
-        $plural = Inflector::pluralize($className);
-        $singular = Inflector::singularize($className);
+        $name = Inflector::camel2words($className);
+        $plural = Inflector::pluralize($name);
+        $singular = Inflector::singularize($name);
 
         return '{n, plural, =1{'.$singular.'} other{'.$plural.'}}';
     }

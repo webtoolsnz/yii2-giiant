@@ -20,8 +20,8 @@ use yii\helpers\Html;
 * @var <?= ltrim($generator->modelClass, '\\') ?> $model
 */
 
-$this->title = sprintf('Update %s: %s', $model->label(), $model->__toString());
-$this->params['breadcrumbs'][] = ['label' => $model->label(2), 'url' => ['index']];
+$this->title = sprintf('Update %s: %s', <?=StringHelper::basename($generator->modelClass)?>::label(), $model->__toString());
+$this->params['breadcrumbs'][] = ['label' => <?=StringHelper::basename($generator->modelClass)?>::label(2), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->__toString(), 'url' => ['view', <?= $urlParams ?>]];
 $this->params['breadcrumbs'][] = <?= $generator->generateString('Edit') ?>;
 ?>

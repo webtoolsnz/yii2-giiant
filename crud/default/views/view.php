@@ -26,7 +26,7 @@ use dmstr\bootstrap\Tabs;
 */
 
 $this->title = $model->__toString();
-$this->params['breadcrumbs'][] = ['label' => $model->label(2), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => <?=StringHelper::basename($generator->modelClass)?>::label(2), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->__toString()];
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-view">

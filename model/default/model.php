@@ -47,7 +47,7 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
     /**
      *
      */
-    public function label($n = 1)
+    public static function label($n = 1)
     {
         return Yii::t('app', '<?=$label?>', ['n' => $n]);
     }

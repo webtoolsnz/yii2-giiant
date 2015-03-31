@@ -24,7 +24,7 @@ use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\w
 * @var <?= ltrim($generator->searchModelClass, '\\') ?> $searchModel
 */
 
-$this->title = $searchModel->label(2);
+$this->title = <?=$generator->modelClass?>::label(2);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

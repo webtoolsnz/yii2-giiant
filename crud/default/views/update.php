@@ -14,6 +14,7 @@ echo "<?php\n";
 ?>
 
 use yii\helpers\Html;
+use <?=$generator->modelClass;?>;
 
 /**
 * @var yii\web\View $this

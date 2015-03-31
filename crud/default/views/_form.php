@@ -71,11 +71,11 @@ use \dmstr\bootstrap\Tabs;
         <?php echo "<?php \$this->endBlock(); ?>"; ?>
 
         <?php
-        $label = substr(strrchr($model::className(), "\\"), 1);;
+        $label = $generator->modelClass.'::label()';
 
         $items = <<<EOS
 [
-    'label'   => '$label',
+    'label'   => $label,
     'content' => \$this->blocks['main'],
     'active'  => true,
 ],

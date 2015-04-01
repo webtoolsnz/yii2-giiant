@@ -118,8 +118,9 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         } catch (\Exception $e) {
             $msg = (isset($e->errorInfo[2]))?$e->errorInfo[2]:$e->getMessage();
             \Yii::$app->getSession()->setFlash('error', $msg);
-            return $this->redirect(Url::previous());
         }
+
+        return $this->redirect(Url::previous());
     }
 
     /**

@@ -23,8 +23,8 @@ Update your `composer.json` with the following:
     },
     "repositories": [
         {
-            "type": "vcs",
-            "url": "git@bitbucket.org:webtoolsnz/yii2-giiant.git"
+            "type": "composer",
+            "url": "http://packages.webtools.nz"
         }
     ]
 
@@ -280,4 +280,4 @@ to your *** composer.json ***  file and run
     
     composer update
     
-if you are having trouble with "Not found" errors using the preferred method. 
+if you are having trouble with "Not found" errors using the preferred method.

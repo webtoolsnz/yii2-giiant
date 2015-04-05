@@ -19,6 +19,10 @@ $labels = $generator->generateSearchLabels();
 $searchAttributes = $generator->getSearchAttributes();
 $searchConditions = $generator->generateSearchConditions();
 
+$class = $generator->modelClass;
+$primaryKey = $class::primaryKey()[0];
+
+
 echo "<?php\n";
 ?>
 
@@ -65,7 +69,7 @@ class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $m
         $query = <?= isset($modelAlias) ? $modelAlias : $modelClass ?>::find();
 
         $dataProvider = new ActiveDataProvider([
-        'query' => $query,
+            'query' => $query,
         ]);
 
         $this->load($params);
@@ -77,6 +81,8 @@ class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $m
         }
 
         <?= implode("\n        ", $searchConditions) ?>
+
+        $query->orderBy('<?=$primaryKey?> DESC');
 
         return $dataProvider;
     }

@@ -115,6 +115,10 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
 
 <?= implode("\n ", $searchConditions) ?>
 
+    <?php if (!empty($tableSchema->primaryKey)): ?>
+    $query->orderBy('<?= $tableSchema->primaryKey[0]?> DESC');
+    <?php endif ?>
+
         return $dataProvider;
     }
 }

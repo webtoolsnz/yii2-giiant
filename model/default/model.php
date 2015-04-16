@@ -106,7 +106,7 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
 <?php if (!empty($tableSchema->primaryKey)): ?>
-            'sort' => ['defaultOrder'=>'<?= $tableSchema->primaryKey[0]?> DESC'],
+            'sort' => ['defaultOrder'=>['<?= $tableSchema->primaryKey[0]?>'=>SORT_DESC]],
 <?php endif ?>
         ]);
 

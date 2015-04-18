@@ -105,6 +105,9 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+<?php if (!empty($tableSchema->primaryKey)): ?>
+            'sort' => ['defaultOrder'=>['<?= $tableSchema->primaryKey[0]?>'=>SORT_DESC]],
+<?php endif ?>
         ]);
 
         if (!$this->load([$formName => $params])) {
@@ -114,10 +117,6 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
         }
 
 <?= implode("\n ", $searchConditions) ?>
-
-    <?php if (!empty($tableSchema->primaryKey)): ?>
-    $query->orderBy('<?= $tableSchema->primaryKey[0]?> DESC');
-    <?php endif ?>
 
         return $dataProvider;
     }

@@ -10,6 +10,7 @@ use yii\helpers\StringHelper;
 
 $urlParams = $generator->generateUrlParams();
 $nameAttribute = $generator->getNameAttribute();
+$modelClass = StringHelper::basename($generator->modelClass);
 
 echo "<?php\n";
 ?>
@@ -37,6 +38,15 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= "<?= " ?>Html::a('<span class="glyphicon glyphicon-plus"></span> ' . <?= $generator->generateString('New') ?> . ' <?= Inflector::camel2words(StringHelper::basename($generator->modelClass)) ?>', ['create'], ['class' => 'btn btn-success']) ?>
         </p>
     </div>
+
+    <?= "<?php if (Yii::\$app->session->hasFlash('Customer_error')): ?>".PHP_EOL ?>
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <?= "<?=Yii::\$app->session->getFlash('{$modelClass}_error', null, true)?>".PHP_EOL ?>
+    </div>
+    <?= "<?php endif ?>" ?>
 
     <?php if ($generator->indexWidgetType === 'grid'): ?>
 

@@ -23,8 +23,7 @@ use <?=$generator->modelClass;?>;
 
 $this->title = sprintf('Update %s: %s', <?=StringHelper::basename($generator->modelClass)?>::label(), $model->__toString());
 $this->params['breadcrumbs'][] = ['label' => <?=StringHelper::basename($generator->modelClass)?>::label(2), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->__toString(), 'url' => ['view', <?= $urlParams ?>]];
-$this->params['breadcrumbs'][] = <?= $generator->generateString('Edit') ?>;
+$this->params['breadcrumbs'][] = $model->__toString();
 ?>
 <div class=<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-update">
 

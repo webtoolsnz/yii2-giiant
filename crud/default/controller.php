@@ -55,20 +55,6 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
     }
 
     /**
-     * Displays a single <?= $modelClass ?> model.
-     * <?= implode("\n\t * ", $actionParamComments) . "\n" ?>
-     *
-     * @return mixed
-     */
-    public function actionView(<?= $actionParams ?>)
-    {
-        Url::remember();
-        return $this->render('view', [
-            'model' => $this->findModel(<?= $actionParams ?>),
-        ]);
-    }
-
-    /**
      * Creates a new <?= $modelClass ?> model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed

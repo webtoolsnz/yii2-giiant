@@ -51,6 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if ($generator->indexWidgetType === 'grid'): ?>
 
     <div class="table-responsive">
+        <?= "<?php \yii\widgets\Pjax::begin(); ?>" ?>
         <?= "<?= " ?>GridView::widget([
             'layout' => '{summary}{pager}{items}{pager}',
             'dataProvider' => $dataProvider,
@@ -89,6 +90,7 @@ PHP;
             ?>
             ],
         ]); ?>
+        <?= "<?php \yii\widgets\Pjax::end(); ?>" ?>
     </div>
 
     <?php else: ?>

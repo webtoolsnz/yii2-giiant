@@ -20,10 +20,10 @@ use yii\helpers\Url;
 use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\widgets\\ListView" ?>;
 
 /**
-* @var yii\web\View $this
-* @var yii\data\ActiveDataProvider $dataProvider
-* @var <?= ltrim($generator->searchModelClass, '\\') ?> $searchModel
-*/
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $dataProvider
+ * @var <?= ltrim($generator->searchModelClass, '\\') ?> $searchModel
+ */
 
 $this->title = <?=$generator->modelClass?>::label(2);
 $this->params['breadcrumbs'][] = $this->title;
@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if ($generator->indexWidgetType === 'grid'): ?>
 
     <div class="table-responsive">
-        <?= "<?php \yii\widgets\Pjax::begin(); ?>" ?>
+        <?= "<?php \yii\widgets\Pjax::begin(); ?>".PHP_EOL ?>
         <?= "<?= " ?>GridView::widget([
             'layout' => '{summary}{pager}{items}{pager}',
             'dataProvider' => $dataProvider,
@@ -85,7 +85,7 @@ PHP;
             ?>
             ],
         ]); ?>
-        <?= "<?php \yii\widgets\Pjax::end(); ?>" ?>
+        <?= "<?php \yii\widgets\Pjax::end(); ?>".PHP_EOL ?>
     </div>
 
     <?php else: ?>

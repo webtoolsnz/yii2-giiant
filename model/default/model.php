@@ -110,7 +110,7 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
 <?php endif ?>
         ]);
 
-        if (!$this->load([$formName => $params])) {
+        if (!$this->load($params, $formName)) {
             // uncomment the following line if you do not want to any records when validation fails
             // $query->where('0=1');
             return $dataProvider;

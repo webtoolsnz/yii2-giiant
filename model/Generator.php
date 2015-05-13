@@ -124,7 +124,7 @@ class Generator extends \yii\gii\generators\model\Generator
                 'tableSchema'      => $tableSchema,
                 'labels'           => $this->generateLabels($tableSchema),
                 'rules'            => $this->generateRules($tableSchema),
-                'relations'        => isset($relations[$className]) ? $relations[$className] : [],
+                'relations'        => isset($relations[$tableName]) ? $relations[$tableName] : [],
                 'ns'               => $this->ns,
                 'searchConditions' => $this->generateSearchConditions($className, $tableSchema),
                 'label'            => $this->generateLabel($className),
@@ -151,10 +151,10 @@ class Generator extends \yii\gii\generators\model\Generator
      * Generates a class name from the specified table name.
      *
      * @param string $tableName the table name (which may contain schema prefix)
-     *
+     * @param null $useSchemaName
      * @return string the generated class name
      */
-    protected function generateClassName($tableName)
+    protected function generateClassName($tableName, $useSchemaName = NULL)
     {
 
         #Yii::trace("Generating class name for '{$tableName}'...", __METHOD__);

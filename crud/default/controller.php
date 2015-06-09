@@ -40,13 +40,13 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
 {
     /**
      * Lists all <?= $modelClass ?> models.
-     * @return mixed
+     * @return string
      */
     public function actionIndex()
     {
         Url::remember();
         $searchModel  = new <?= isset($searchModelAlias) ? $searchModelAlias : $searchModelClass ?>;
-        $dataProvider = $searchModel->search($_GET);
+        $dataProvider = $searchModel->search(Yii::$app->getRequest()->get());
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -57,7 +57,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
     /**
      * Creates a new <?= $modelClass ?> model.
      * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
@@ -76,13 +76,15 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
      * Updates an existing <?= $modelClass ?> model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * <?= implode("\n\t * ", $actionParamComments) . "\n" ?>
-     * @return mixed
+     * @param $id
+     * @return string|\yii\web\Response
+     * @throws HttpException
      */
     public function actionUpdate(<?= $actionParams ?>)
     {
         $model = $this->findModel(<?= $actionParams ?>);
 
-        if ($model->load($_POST) && $model->save()) {
+        if ($model->load(Yii::$app->getRequest()->post()) && $model->save()) {
             return $this->redirect(Url::previous());
         }
 
@@ -95,15 +97,14 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
      * Deletes an existing <?= $modelClass ?> model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * <?= implode("\n\t * ", $actionParamComments) . "\n" ?>
-     * @return mixed
+     * @return \yii\web\Response
      */
     public function actionDelete(<?= $actionParams ?>)
     {
         try {
             $this->findModel(<?= $actionParams ?>)->delete();
         } catch (\Exception $e) {
-            $msg = (isset($e->errorInfo[2]))?$e->errorInfo[2]:$e->getMessage();
-            \Yii::$app->getSession()->setFlash('<?=$modelClass?>_error', $msg);
+            Yii::$app->getSession()->setFlash('<?=$modelClass?>_error', $e->getMessage());
         }
 
         return $this->redirect(Url::previous());
@@ -113,8 +114,8 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
      * Finds the <?= $modelClass ?> model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * <?= implode("\n\t * ", $actionParamComments) . "\n" ?>
-     * @return <?= $modelClass ?> the loaded model
-     * @throws HttpException if the model cannot be found
+     * @return \<?= $generator->modelClass."\n" ?>
+     * @throws HttpException
      */
     protected function findModel(<?= $actionParams ?>)
     {

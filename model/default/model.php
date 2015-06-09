@@ -94,27 +94,26 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
      * Creates data provider instance with search query applied
      *
      * @param array $params
-     *
      * @return ActiveDataProvider
      */
     public function search($params = null)
     {
-        $formName = $this->formName();
-        $params = !$params ? Yii::$app->request->get($formName, array()) : $params;
         $query = self::find();
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-<?php if (!empty($tableSchema->primaryKey)): ?>
-            'sort' => ['defaultOrder'=>['<?= $tableSchema->primaryKey[0]?>'=>SORT_DESC]],
-<?php endif ?>
-        ]);
+        if ($params === null) {
+            $params = Yii::$app->request->get($this->formName(), array());
+        }
 
-        $this->load($params, $formName);
+        $this->load($params, $this->formName());
 
 <?= implode("\n ", $searchConditions) ?>
 
-        return $dataProvider;
+        return new ActiveDataProvider([
+            'query' => $query,
+<?php if (!empty($tableSchema->primaryKey)): ?>
+            'sort' => ['defaultOrder' => ['<?= $tableSchema->primaryKey[0]?>' => SORT_DESC]],
+<?php endif ?>
+        ]);
     }
 }
 

@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-index">
 
-    <h1><?= '<?= $searchModel->label(2) ?>' ?></h1>
+    <h1><?= '<?= $this->title ?>' ?></h1>
 
     <div class="clearfix">
         <p class="pull-left">

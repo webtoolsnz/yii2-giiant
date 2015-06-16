@@ -13,6 +13,7 @@ echo "<?php\n";
 
 use yii\helpers\Html;
 use <?=$generator->modelClass;?>;
+use yii\bootstrap\Tabs;
 
 /**
 * @var yii\web\View $this
@@ -25,8 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass), '-', true) ?>-create">
 
-    <?= "<?= " ?>$this->render('_form', [
-    'model' => $model,
-    ]); ?>
+    <?= "<?= Tabs::widget([
+        'encodeLabels' => false,
+        'items' => [
+            [
+                'label'   => ".StringHelper::basename($generator->modelClass)."::label(1),
+                'content' => \$this->render('_form', ['model' => \$model]),
+                'active'  => true,
+            ],
+        ]
+    ]);?>"; ?>
 
 </div>

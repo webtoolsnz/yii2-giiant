@@ -15,6 +15,7 @@ echo "<?php\n";
 
 use yii\helpers\Html;
 use <?=$generator->modelClass;?>;
+use yii\bootstrap\Tabs;
 
 /**
 * @var yii\web\View $this
@@ -29,8 +30,15 @@ $this->params['breadcrumbs'][] = $model->__toString();
 
     <h1><?= '<?=$this->title ?>' ?></h1>
 
-    <?= "<?php " ?>echo $this->render('_form', [
-    'model' => $model,
-    ]); ?>
+    <?= "<?= Tabs::widget([
+        'encodeLabels' => false,
+        'items' => [
+            [
+                'label'   => ".StringHelper::basename($generator->modelClass)."::label(1),
+                'content' => \$this->render('_form', ['model' => \$model]),
+                'active'  => true,
+            ],
+        ]
+    ]);?>"; ?>
 
 </div>

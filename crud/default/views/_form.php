@@ -19,7 +19,6 @@ echo "<?php\n";
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use \dmstr\bootstrap\Tabs;
 
 /**
 * @var yii\web\View $this
@@ -38,7 +37,7 @@ use \dmstr\bootstrap\Tabs;
     ]); ?>
 
     <?= "<?php " ?>echo $form->errorSummary($model); ?>
-    <?php echo "<?php \$this->beginBlock('main'); ?>\n"; ?>
+
     <?php foreach ($safeAttributes as $attribute) {
         if (!isset($generator->getTableSchema()->columns[$attribute])) {
             continue;
@@ -59,21 +58,6 @@ use \dmstr\bootstrap\Tabs;
             echo "\n    <?php " . $append . " ?>";
         }
     } ?>
-
-    <?php echo "<?php \$this->endBlock(); ?>"; ?>
-
-    <?php $label = $generator->modelClass.'::label()';?>
-
-    <?= "<?= Tabs::widget([
-        'encodeLabels' => false,
-        'items' => [
-            [
-                'label'   => $label,
-                'content' => \$this->blocks['main'],
-                'active'  => true,
-            ],
-        ]
-    ]);?>"; ?>
 
     <hr/>
 

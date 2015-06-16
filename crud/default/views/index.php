@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
     </div>
 
-    <?= "<?php if (Yii::\$app->session->hasFlash('Customer_error')): ?>".PHP_EOL ?>
+    <?= "<?php if (Yii::\$app->session->hasFlash('{$modelClass}_error')): ?>".PHP_EOL ?>
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

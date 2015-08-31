@@ -13,7 +13,7 @@ echo "<?php\n";
 
 use yii\helpers\Html;
 use <?=$generator->modelClass;?>;
-use yii\bootstrap\Tabs;
+use webtoolsnz\widgets\Tabs;
 
 /**
 * @var yii\web\View $this

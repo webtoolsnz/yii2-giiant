@@ -17,8 +17,8 @@
         }
     ],
     "require": {
-        "dmstr/yii2-bootstrap": "*",
-        "yiisoft/yii2-gii": "~2.0.4"
+        "yiisoft/yii2-gii": "~2.0.6",
+        "webtoolsnz/yii2-widgets" : "*"
     },
     "autoload": {
         "psr-4": {

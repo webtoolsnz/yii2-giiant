@@ -31,7 +31,7 @@ class Generator extends \yii\gii\generators\crud\Generator
     public $actionButtonClass = 'yii\grid\ActionColumn';
     public $skipRelations = [];
     public $providerList = null;
-    public $viewPath = '@backend/views';
+    public $viewPath = '@admin/views';
     public $tablePrefix = null;
     public $pathPrefix = null;
     public $formLayout = 'horizontal';

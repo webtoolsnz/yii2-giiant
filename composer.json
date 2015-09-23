@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "yiisoft/yii2-gii": "~2.0.6",
+        "yiisoft/yii2-gii": "~2.0.4",
         "webtoolsnz/yii2-widgets" : "*"
     },
     "autoload": {

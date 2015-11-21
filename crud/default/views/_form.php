@@ -61,13 +61,13 @@ use yii\bootstrap\ActiveForm;
 
     <hr/>
 
-    <?= "<?= " ?>Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? <?= $generator->generateString('Create') ?> : <?= $generator->generateString('Save') ?>), [
-        'id'    => 'save-' . $model->formName(),
-        'class' => 'btn btn-primary'
-    ]); ?>
+    <?= "<?= " ?>Html::a(<?= $generator->generateString('Cancel') ?>, \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
 
     <p class="pull-right">
-        <?= "<?= " ?>Html::a(<?= $generator->generateString('Cancel') ?>, \yii\helpers\Url::previous(), ['class' => 'btn btn-default']) ?>
+        <?= "<?= " ?>Html::submitButton('<span class="glyphicon glyphicon-check"></span> ' . ($model->isNewRecord ? <?= $generator->generateString('Create') ?> : <?= $generator->generateString('Save') ?>), [
+        'id'    => 'save-' . $model->formName(),
+        'class' => 'btn btn-primary'
+        ]); ?>
     </p>
 
 

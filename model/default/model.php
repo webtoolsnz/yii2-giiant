@@ -101,10 +101,10 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
         $query = self::find();
 
         if ($params === null) {
-            $params = Yii::$app->request->get($this->formName(), array());
+            $params = array_filter(Yii::$app->request->get($this->formName(), array()));
         }
 
-        $this->load($params, $this->formName());
+        $this->attributes = $params;
 
 <?= implode("\n ", $searchConditions) ?>
 

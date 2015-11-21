@@ -219,6 +219,11 @@ class Generator extends \yii\gii\generators\model\Generator
     {
         $relations = parent::generateRelations();
 
+        foreach ($relations as $tableName => $tableRelations) {
+            ksort($tableRelations);
+            $relations[$tableName] = $tableRelations;
+        }
+
         // inject namespace
         $ns = "\\{$this->ns}\\";
         foreach ($relations AS $model => $relInfo) {

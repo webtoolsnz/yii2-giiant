@@ -44,9 +44,8 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
      */
     public function actionIndex()
     {
-        Url::remember();
         $searchModel  = new <?= isset($searchModelAlias) ? $searchModelAlias : $searchModelClass ?>;
-        $dataProvider = $searchModel->search(Yii::$app->getRequest()->get());
+        $dataProvider = $searchModel->search();
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -64,7 +63,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = new <?= $modelClass ?>;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(Url::previous());
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -85,7 +84,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         $model = $this->findModel(<?= $actionParams ?>);
 
         if ($model->load(Yii::$app->getRequest()->post()) && $model->save()) {
-            return $this->redirect(Url::previous());
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [
@@ -107,7 +106,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
             Yii::$app->getSession()->setFlash('<?=$modelClass?>_error', $e->getMessage());
         }
 
-        return $this->redirect(Url::previous());
+        return $this->redirect(['index']);
     }
 
     /**

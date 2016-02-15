@@ -321,4 +321,17 @@ class Generator extends \yii\gii\generators\model\Generator
         return $this->descriptiveAttribute ? $this->descriptiveAttribute : reset($tableSchema->primaryKey);
     }
 
+    public function generateLabels($table)
+    {
+        $labels = [];
+        foreach ($table->columns as $column) {
+            $label = Inflector::camel2words($column->name);
+            if (!empty($label) && substr_compare($label, ' id', -3, 3, true) === 0) {
+                $labels[$column->name] = substr($label, 0, -3);
+            }
+        }
+
+        return array_merge(parent::generateLabels($table), $labels);
+    }   
+
 }

@@ -318,7 +318,19 @@ class Generator extends \yii\gii\generators\model\Generator
 
     public function generateToString($tableSchema)
     {
-        return $this->descriptiveAttribute ? $this->descriptiveAttribute : reset($tableSchema->primaryKey);
+        $columns = [];
+        if ($tableSchema) {
+            foreach ($tableSchema->columns as $column) {
+                $columns[$column->name] = $column->type;
+            }
+        }
+        return $this->descriptiveAttribute
+            ? $this->descriptiveAttribute
+            : (
+                isset($columns['description'])
+                    ? 'description'
+                    : reset($tableSchema->primaryKey)
+            );
     }
 
     public function generateLabels($table)

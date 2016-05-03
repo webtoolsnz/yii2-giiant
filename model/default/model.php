@@ -52,6 +52,7 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
         return Yii::t('app', '<?=$label?>', ['n' => $n]);
     }
 
+<?php if (!empty($toString)): ?>
     /**
      *
      */
@@ -59,6 +60,7 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
     {
         return (string) $this-><?=$toString?>;
     }
+<?php endif ?>
 
     /**
      * @inheritdoc

@@ -240,6 +240,23 @@ class Generator extends \yii\gii\generators\model\Generator
         return $relations;
     }
 
+    /**
+     * Ensure that rules are ordered consistently on generation.
+     *
+     * @param \yii\db\TableSchema $table
+     * @return array
+     */
+    public function generateRules($table)
+    {
+        $rules = parent::generateRules($table);
+
+        usort($rules, function ($a, $b) {
+            return strcmp($a, $b);
+        });
+
+        return $rules;
+    }
+
     public function getTableNames()
     {
         $ignoreTables = array_filter(array_map('trim', explode(',', $this->ignoreTables)));

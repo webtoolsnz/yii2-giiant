@@ -20,7 +20,6 @@ use yii\base\BootstrapInterface;
  */
 class Bootstrap implements BootstrapInterface
 {
-
     /**
      * Bootstrap method to be called during application bootstrap stage.
      *
@@ -33,9 +32,15 @@ class Bootstrap implements BootstrapInterface
             if (!isset($app->getModule('gii')->generators['giiant-model'])) {
                 $app->getModule('gii')->generators['giiant-model'] = 'webtoolsnz\giiant\model\Generator';
             }
+
             if (!isset($app->getModule('gii')->generators['giiant-crud'])) {
                 $app->getModule('gii')->generators['giiant-crud'] = 'webtoolsnz\giiant\crud\Generator';
             }
+
+            if (!isset($app->getModule('gii')->generators['giiant-migration'])) {
+                $app->getModule('gii')->generators['giiant-migration'] = 'webtoolsnz\giiant\migration\Generator';
+            }
+
             if ($app instanceof \yii\console\Application) {
                 $app->controllerMap['giiant-batch'] = 'webtoolsnz\giiant\commands\BatchController';
             }

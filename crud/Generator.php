@@ -156,10 +156,9 @@ class Generator extends \yii\gii\generators\crud\Generator
                     return $name;
                     break;
                 default:
-                    continue;
+                    continue 2;
                     break;
             }
-
         }
 
         return $modelClass::primaryKey()[0];

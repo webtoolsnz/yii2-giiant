@@ -16,7 +16,7 @@ class OptsProvider extends \webtoolsnz\giiant\base\Provider
         $modelClass = $this->generator->modelClass;
         $func       = 'opts' . str_replace("_", "", $column->name);
 
-        if (method_exists($modelClass::class, $func)) {
+        if (method_exists($modelClass::className(), $func)) {
             $mode = isset($this->columnNames[$attribute->name]) ? $this->columnNames[$attribute->name] : null;
         } else {
             return null;

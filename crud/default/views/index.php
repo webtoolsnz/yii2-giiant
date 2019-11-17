@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'layout' => '{summary}{pager}{items}{pager}',
             'dataProvider' => $dataProvider,
             'pager' => [
-                'class' => yii\widgets\LinkPager::className(),
+                'class' => yii\widgets\LinkPager::class,
                 'firstPageLabel' => <?= $generator->generateString('First') ?>,
                 'lastPageLabel' => <?= $generator->generateString('Last') ?>,
             ],

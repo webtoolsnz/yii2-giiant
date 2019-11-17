@@ -12,7 +12,7 @@ class DateTimeProvider extends \webtoolsnz\giiant\base\Provider
             case (in_array($column->name, $this->columnNames)):
                 $this->generator->requires[] = 'zhuravljov\yii2-datetime-widgets';
                 return <<<EOS
-\$form->field(\$model, '{$column->name}')->widget(\zhuravljov\widgets\DateTimePicker::className(), [
+\$form->field(\$model, '{$column->name}')->widget(\zhuravljov\widgets\DateTimePicker::class, [
     'options' => ['class' => 'form-control'],
     'clientOptions' => [
         'autoclose' => true,

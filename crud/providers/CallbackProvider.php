@@ -59,7 +59,7 @@ class CallbackProvider extends \webtoolsnz\giiant\base\Provider
 
     private function getModelKey($attribute, $model)
     {
-        return $model::className() . '.' . $attribute;
+        return $model::class . '.' . $attribute;
     }
 
     private function findValue($subject, $array)

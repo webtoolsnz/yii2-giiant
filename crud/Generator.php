@@ -42,11 +42,11 @@ class Generator extends \yii\gii\generators\crud\Generator
     static public function getCoreProviders()
     {
         return [
-            CallbackProvider::className(),
-            EditorProvider::className(),
-            DateTimeProvider::className(),
-            OptsProvider::className(),
-            RelationProvider::className()
+            CallbackProvider::class,
+            EditorProvider::class,
+            DateTimeProvider::class,
+            OptsProvider::class,
+            RelationProvider::class
         ];
     }
 

@@ -23,7 +23,7 @@ class EditorProvider extends \webtoolsnz\giiant\base\Provider
                 $this->generator->requires[] = '2amigos/yii2-ckeditor-widget';
                 return <<<EOS
 \$form->field(\$model, '{$attribute->name}')->widget(
-    \dosamigos\ckeditor\CKEditor::className(),
+    \dosamigos\ckeditor\CKEditor::class,
     [
         'options' => ['rows' => 6],
         'preset' => 'basic'

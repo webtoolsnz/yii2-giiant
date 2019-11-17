@@ -228,13 +228,16 @@ class Generator extends \yii\gii\generators\model\Generator
         $ns = "\\{$this->ns}\\";
         foreach ($relations AS $model => $relInfo) {
             foreach ($relInfo AS $relName => $relData) {
-
-                $relations[$model][$relName][0] = preg_replace(
+                $definition = $relations[$model][$relName][0];
+                $definition = preg_replace(
                     '/(has[A-Za-z0-9]+\()([a-zA-Z0-9]+::)/',
                     '$1__NS__$2',
-                    $relations[$model][$relName][0]
+                    $definition
                 );
-                $relations[$model][$relName][0] = str_replace('__NS__', $ns, $relations[$model][$relName][0]);
+
+                $definition = str_replace('::className()', '::class', $definition);
+                $definition = str_replace('__NS__', $ns, $definition);
+                $relations[$model][$relName][0] = $definition;
             }
         }
         return $relations;
@@ -249,6 +252,10 @@ class Generator extends \yii\gii\generators\model\Generator
     public function generateRules($table)
     {
         $rules = parent::generateRules($table);
+
+        $rules = array_map(function ($rule) {
+            return str_replace('::className()', '::class', $rule);
+        }, $rules);
 
         usort($rules, function ($a, $b) {
             return strcmp($a, $b);

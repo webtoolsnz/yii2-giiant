@@ -16,7 +16,7 @@ class OptsProvider extends \webtoolsnz\giiant\base\Provider
         $modelClass = $this->generator->modelClass;
         $func       = 'opts' . str_replace("_", "", $column->name);
 
-        if (method_exists($modelClass::className(), $func)) {
+        if (method_exists($modelClass::class, $func)) {
             $mode = isset($this->columnNames[$attribute->name]) ? $this->columnNames[$attribute->name] : null;
         } else {
             return null;
@@ -33,7 +33,7 @@ EOS;
 
             case 'select2':
                 return <<<EOS
-                    \$form->field(\$model, '{$column->name}')->widget(\kartik\select2\Select2::classname(), [
+                    \$form->field(\$model, '{$column->name}')->widget(\kartik\select2\Select2::class, [
                         'name' => 'class_name',
                         'model' => \$model,
                         'attribute' => '{$column->name}',

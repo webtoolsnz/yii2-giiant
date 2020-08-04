@@ -25,7 +25,7 @@ use yii\data\ActiveDataProvider;
  * This is the base-model class for table "<?= $tableName ?>".
  *
 <?php foreach ($tableSchema->columns as $column): ?>
- * @property <?= "{$column->phpType} \${$column->name}\n" ?>
+ * @property <?= "{$column->phpType}".($column->allowNull ? '|null' : '')." \${$column->name}\n" ?>
 <?php endforeach; ?>
 <?php if (!empty($relations)): ?>
  *

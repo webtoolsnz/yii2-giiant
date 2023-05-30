@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": ">=7.2.0",
-        "yiisoft/yii2-gii": "~2.0.5",
+        "yiisoft/yii2-gii": "~2.0",
         "webtoolsnz/yii2-widgets" : "*"
     },
     "autoload": {
